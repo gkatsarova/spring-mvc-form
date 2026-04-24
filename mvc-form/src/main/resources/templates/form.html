@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Grading Students</title>
+</head>
+<body>
+
+<h1>Grading System</h1>
+
+<form th:action="@{/grade}" th:object="${studentForm}" method="post">
+
+    <div>
+        <label>Student's name:</label>
+        <label>
+            <input type="text" th:field="*{studentName}" />
+        </label>
+        <span th:if="${#fields.hasErrors('studentName')}" th:errors="*{studentName}" style="color:red"></span>
+    </div>
+
+    <div>
+        <label>Received points:</label>
+        <label>
+            <input type="number" step="0.5" th:field="*{receivedPoints}" />
+        </label>
+        <span th:if="${#fields.hasErrors('receivedPoints')}" th:errors="*{receivedPoints}" style="color:red"></span>
+    </div>
+
+    <div>
+        <label>Max points:</label>
+        <label>
+            <input type="number" step="0.5" th:field="*{maxPoints}" />
+        </label>
+        <span th:if="${#fields.hasErrors('maxPoints')}" th:errors="*{maxPoints}" style="color:red"></span>
+    </div>
+
+    <div>
+        <label>Attendance percentage (0–100):</label>
+        <label>
+            <input type="number" min="0" max="100" step="0.01" th:field="*{attendancePercentage}" />
+        </label>
+        <span th:if="${#fields.hasErrors('attendancePercentage')}" th:errors="*{attendancePercentage}" style="color:red"></span>
+    </div>
+
+    <button type="submit">Calculate Grade</button>
+
+</form>
+
+</body>
+</html>

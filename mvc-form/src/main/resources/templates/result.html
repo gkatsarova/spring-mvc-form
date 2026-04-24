@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+
+<h1>Result for <span th:text="${result.studentName}"></span></h1>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <td>Grade Percentage</td>
+        <td th:text="${result.examPercentage} + '%'"></td>
+    </tr>
+    <tr>
+        <td>Attendance Percentage</td>
+        <td th:text="${result.attendancePercentage} + '%'"></td>
+    </tr>
+    <tr>
+        <td>Final Score</td>
+        <td th:text="${result.finalScore} + '%'"></td>
+    </tr>
+    <tr>
+        <td>Grade</td>
+        <td th:text="${result.grade} + ' (' + ${result.gradeLabel} + ')'"></td>
+    </tr>
+</table>
+
+<br>
+<a href="/">Go Back</a>
+
+</body>
+</html>
